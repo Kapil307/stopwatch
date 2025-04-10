@@ -4,12 +4,22 @@ import { useState, useEffect } from "react";
 const Stopwatch = () => {
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [prevTimeString, setPrevTimeString] = useState("00:00");
 
   useEffect(() => {
     let timer;
     if (isRunning) {
-      timer = setInterval(() => setTime(prev => prev + 1), 1000);
+      timer = setInterval(() => {
+        setTime(prev => {
+          const nextTime = prev + 1;
+          setPrevTimeString(formatTime(prev)); // save current time before updating
+          return nextTime;
+        });
+      }, 1000);
+    } else {
+      clearInterval(timer);
     }
+
     return () => clearInterval(timer);
   }, [isRunning]);
 
@@ -18,23 +28,35 @@ const Stopwatch = () => {
   const handleReset = () => {
     setIsRunning(false);
     setTime(0);
+    setPrevTimeString("00:00");
   };
 
-  const formatTime = (totalSeconds) => {
-    const mins = Math.floor(totalSeconds / 60);
-    const secs = totalSeconds % 60;
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
     return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   };
 
+  const currentTimeString = formatTime(time);
+
   return (
     <div className="frame">
-      <h3>Stopwatch</h3>
       <div className="time">
-        {formatTime(time).split('').map((char, index) => (
-          <span key={index} className={`digit ${char === ':' ? 'blinking' : ''}`}>
-            {char}
-          </span>
-        ))}
+        {currentTimeString.split('').map((char, index) => {
+          const isChanging = char !== prevTimeString[index];
+          return (
+            <span
+              key={`${char}-${index}-${time}`}
+              className={
+                char === ':' 
+                  ? `digit colon ${isRunning ? 'blinking' : ''}` 
+                  : `digit ${isChanging ? 'animate' : ''}`
+              }
+            >
+              {char}
+            </span>
+          );
+        })}
       </div>
       <div className="sec">
         <button className="btn-1" onClick={handleStart}>Start</button>
