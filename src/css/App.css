@@ -1,0 +1,89 @@
+.frame {
+  width: 300px;
+  margin-left: 400px;
+  margin-top: 200px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.time {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.digit {
+  display: inline-block;
+}
+
+/* Only animate if class 'animate' is applied */
+.animate {
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Blink only if class 'blinking' is present */
+.blinking {
+  animation: blink 1s steps(1, start) infinite;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.sec {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-1 {
+  background: #28a745;
+  color: white;
+}
+
+.btn-2 {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-3 {
+  background: #007bff;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
