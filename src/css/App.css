@@ -1,15 +1,17 @@
 .frame {
-  width: 300px;
-  margin-left: 400px;
-  margin-top: 200px;
+  width: 90%;
+  max-width: 300px;
+  margin: 150px auto; /* centers it horizontally */
   padding: 30px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   text-align: center;
+  color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 .time {
   font-size: 48px;
@@ -86,4 +88,15 @@ button {
 button:hover {
   transform: scale(1.05);
   opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+  .time {
+    font-size: 36px;
+  }
+
+  button {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
 }
