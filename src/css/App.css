@@ -1,23 +1,21 @@
 .frame {
-  width: 90%;
+  width: 100%;
   max-width: 300px;
-  margin: 150px auto; /* centers it horizontally */
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
+  margin: 120px auto;
+  padding: 40px 20px;
+  background: #00FFE0;
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   text-align: center;
-  color: #fff;
+  color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
-
 
 .time {
   font-size: 48px;
   font-weight: bold;
-  margin-bottom: 25px;
-  color: black;
+  margin-bottom: 30px;
   display: flex;
   justify-content: center;
   gap: 6px;
@@ -25,78 +23,41 @@
 
 .digit {
   display: inline-block;
+  color: #026b53;
 }
 
-/* Only animate if class 'animate' is applied */
-.animate {
-  animation: slideUp 0.4s ease-out;
-}
-
-/* Blink only if class 'blinking' is present */
 .blinking {
   animation: blink 1s steps(1, start) infinite;
 }
 
-@keyframes slideUp {
-  0% {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 @keyframes blink {
-  0% { opacity: 1; }
+  0%, 100% { opacity: 1; }
   50% { opacity: 0; }
-  100% { opacity: 1; }
 }
 
 .sec {
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  margin-top: 20px;
 }
 
 button {
-  padding: 12px 20px;
+  padding: 10px 18px;
   border: none;
   border-radius: 10px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-}
-
-.btn-1 {
-  background: #28a745;
   color: white;
 }
 
-.btn-2 {
-  background: #dc3545;
-  color: white;
-}
-
-.btn-3 {
-  background: #007bff;
-  color: white;
-}
+.btn-1 { background: #28a745; }
+.btn-2 { background: #dc3545; }
+.btn-3 { background: #007bff; }
 
 button:hover {
-  transform: scale(1.05);
   opacity: 0.9;
-}
-
-@media (max-width: 480px) {
-  .time {
-    font-size: 36px;
-  }
-
-  button {
-    padding: 10px 14px;
-    font-size: 14px;
-  }
+  transform: scale(1.05);
 }
