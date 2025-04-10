@@ -40,7 +40,7 @@ const Stopwatch = () => {
   const currentTimeString = formatTime(time);
 
   return (
-    <div className="frame">
+    <div className="frame"> <h3>Stop Watch</h3>
       <div className="time">
         {currentTimeString.split('').map((char, index) => {
           const isChanging = char !== prevTimeString[index];
