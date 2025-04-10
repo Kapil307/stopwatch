@@ -87,3 +87,30 @@ button:hover {
   transform: scale(1.05);
   opacity: 0.9;
 }
+
+/* Existing styles remain as is... */
+
+/* Mobile-friendly layout */
+@media screen and (max-width: 600px) {
+  .frame {
+    width: 90%;
+    margin: 100px auto;
+    padding: 20px;
+  }
+
+  .time {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .sec {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+}
